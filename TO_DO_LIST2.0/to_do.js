@@ -2,6 +2,9 @@ const input = document.getElementById("input");
 const add_btn = document.getElementById("add_btn");
 const list = document.getElementById("list");
 const del_btn = document.getElementById("del_btn");
+const filter_all = document.getElementById("show-all");
+const filter_done = document.getElementById("show-done");
+const filter_pending = document.getElementById("show-pending");
 
 const tasks = JSON.parse(localStorage.getItem("List")) || [];
 
@@ -12,6 +15,34 @@ if(tasks){
 add_btn.addEventListener("click", add_to_list);
 
 del_btn.addEventListener("click", del_to_list);
+
+filter_all.addEventListener("click", () => {
+	const items = list.querySelectorAll("li");
+	items.forEach(li => {
+		li.style.display = "flex";
+	});
+});
+
+filter_done.addEventListener("click", () => {
+	const items = list.querySelectorAll("li");
+	items.forEach(li => {
+		if(li.dataset.completed == "true")
+		{
+			li.style.display = "flex";
+		}
+		else
+		{
+			li.style.display = "none";
+		}
+	});
+});
+
+filter_pending.addEventListener("click", () => {
+	const items = list.querySelectorAll("li");
+	items.forEach(li => {
+		li.style.display = li.dataset.completed == "false" ? "flex" : "none";
+	});
+});
 
 function add_to_list(){
 
@@ -38,6 +69,8 @@ function render_list(){
 
 		li.textContent = task.text;
 
+		li.dataset.completed = task.completed;
+
 		if(task.completed){
 			li.style.textDecoration = "line-through";
 		}
@@ -48,6 +81,15 @@ function render_list(){
 			render_list();
 		});
 
+		li.addEventListener("dblclick", () => {
+			const new_text = prompt("Edit task:", li.textContent);
+			if(!(new_text == null || new_text.trim() == "")){
+				task.text = new_text;
+				localStorage.setItem("List", JSON.stringify(tasks));
+				render_list();
+			}
+		});
+		
 		list.appendChild(li);
 	});	
 }

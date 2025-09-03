@@ -1,0 +1,41 @@
+1. Editar tareas
+
+Al hacer doble click sobre una tarea → convertir el texto en un <input> para editarlo.
+
+Guardar el nuevo texto al presionar Enter o al perder el foco.
+
+2. Filtros de tareas
+
+Botones tipo: Todas | Completadas | Pendientes
+
+Usar array.filter para mostrar solo las tareas que cumplen esa condición.
+
+3. Contador de tareas
+
+Mostrar abajo:
+3 tareas pendientes | 5 completadas
+
+4. Persistencia mejorada con localStorage
+
+Ahora guardás solo texto, podés guardar objetos:
+
+{ id: 1, text: "Hacer la compra", completed: false }
+
+
+Esto te permitirá editar y filtrar más fácil.
+
+5. Estilo mejorado (CSS)
+
+Agregar animaciones al agregar/eliminar tareas.
+
+Usar transiciones (transition) para que se desvanezcan.
+
+Hacer un layout con Flexbox o Grid para que sea más limpio.
+
+6. Buscador
+
+Una caja de búsqueda arriba para filtrar tareas en tiempo real.
+
+7. Dark Mode 🌙
+
+Un botón que cambie entre tema claro y oscuro usando CSS variables o clases.
