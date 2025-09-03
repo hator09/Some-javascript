@@ -7,10 +7,13 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="list_container">
+	<div id="list_container" class="list_container">
 		<h1>To Do List</h1>
-		<input type="text" name="input" id="input" placeholder="Write a task">
-		<button type="button" id="add_btn">Add</button>
+		<div class="add_div">
+			<input type="text" name="input" id="input" placeholder="Write a task">
+			<button type="button" id="add_btn">Add</button>
+		</div>
+		
 		<div class="filters">
 			<button id="show-all">Todas</button>
 			<button id="show-done">Completadas</button>
@@ -18,7 +21,7 @@
 		</div>
 
 		<ul id="list"></ul>
-
+		
 		<button type="button" id="del_btn">Delete</button>
 		<script src="to_do.js"></script>
 	</div>

@@ -1,3 +1,4 @@
+const div = document.getElementById("list_container");
 const input = document.getElementById("input");
 const add_btn = document.getElementById("add_btn");
 const list = document.getElementById("list");
@@ -7,7 +8,7 @@ const filter_done = document.getElementById("show-done");
 const filter_pending = document.getElementById("show-pending");
 
 const tasks = JSON.parse(localStorage.getItem("List")) || [];
-
+const tasks_count = document.createElement("p");
 if(tasks){
 	render_list();
 }
@@ -91,7 +92,19 @@ function render_list(){
 		});
 		
 		list.appendChild(li);
-	});	
+	});
+
+	let pending = 0;
+	let completed = 0;
+	tasks.forEach(task =>{
+		if(task.completed)
+			completed++;
+		else
+			pending++;
+	});
+
+	tasks_count.textContent = "tareas pendientes "+ pending +" | " + completed +" completadas";
+	div.appendChild(tasks_count);
 }
 
 function del_to_list(){
