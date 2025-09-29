@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/hator09/Some-javascript/issues"
   },
-  "homepage": "https://github.com/hator09/Some-javascript#readme"
+  "homepage": "https://github.com/hator09/Some-javascript#readme",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
 }
